@@ -44,18 +44,11 @@ export default function Planets() {
       <form onSubmit={onFormSubmit}>
         <h2>Climate</h2>
         <select onChange={(e) => setClimateQuery(e.target.value)}>
-          <option disabled selected value>
-            {' '}
-            -- select an option --{' '}
-          </option>
           <option>arid</option>
           <option>temperate</option>
           <option>tropical</option>
           <option>frozen</option>
           <option>murky</option>
-          <option>hot</option>
-          <option>rocky</option>
-          <option>polluted</option>
         </select>
 
         <button type="submit">

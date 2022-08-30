@@ -60,10 +60,6 @@ export default function Movie() {
           <div className="select-wrapper">
             <h2>Gender</h2>
             <select onChange={(e) => setFilterGender(e.target.value)}>
-              <option disabled selected value>
-                {' '}
-                -- select an option --{' '}
-              </option>
               <option>male</option>
               <option>female</option>
             </select>
@@ -71,10 +67,6 @@ export default function Movie() {
           <div className="select-wrapper">
             <h2>Height</h2>
             <select onChange={(e) => setFilterHeight(e.target.value)}>
-              <option disabled selected value>
-                {' '}
-                -- select an option --{' '}
-              </option>
               <option>ascending</option>
               <option>descending</option>
             </select>
@@ -82,10 +74,6 @@ export default function Movie() {
           <div className="select-wrapper">
             <h2>Age</h2>
             <select onChange={(e) => setFilterAge(e.target.value)}>
-              <option disabled selected value>
-                {' '}
-                -- select an option --{' '}
-              </option>
               <option>ascending</option>
               <option>descending</option>
             </select>
@@ -93,10 +81,6 @@ export default function Movie() {
           <div className="select-wrapper">
             <h2>Title</h2>
             <select onChange={(e) => setTitle(e.target.value)}>
-              <option disabled selected value>
-                {' '}
-                -- select an option --{' '}
-              </option>
               <option>A New Hope</option>
               <option>The Empire Strikes Back</option>
               <option>Return of the Jedi</option>
