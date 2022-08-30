@@ -1,0 +1,27 @@
+body {
+  height: 100vh;
+  background: #f4a261;
+  margin: auto 0;
+}
+
+button {
+  text-decoration: none;
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid #264653;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #ef476f;
+}
+
+.Btn-wrapper {
+  margin-top: 10px;
+  padding: 3px 6px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.btn-text {
+  color: #264653;
+  font-size: 12px;
+}
