@@ -12,16 +12,16 @@ h4 {
   border: 2px solid #264653;
 }
 
-.btn-container {
+button {
   margin-left: 10px;
   text-decoration: none;
   font-weight: bold;
   background-color: transparent;
   border: 2px solid #264653;
   border-radius: 15px;
-  width: 75px;
+  max-width: 200px;
 }
-.btn-container:hover {
+button:hover {
   background-color: #ef476f;
 }
 

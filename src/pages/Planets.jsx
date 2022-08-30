@@ -39,6 +39,10 @@ export default function Planets() {
     setPageQuery(pageQuery - 1 > 0 ? pageQuery - 1 : 1);
   };
 
+  const firstPage = () => {
+    setPageQuery(1);
+  };
+
   return (
     <div className="Planet-wrapper">
       <form onSubmit={onFormSubmit}>
@@ -48,13 +52,24 @@ export default function Planets() {
           onChange={(e) => setClimateQuery(e.target.value)}
           className="Input-wrapper"
         />
-        <button type="submit" className="btn-container">
-          <h2 className="button-text">Submit</h2>
+        <button type="submit">
+          <h2 className="button-text">Request</h2>
         </button>
         <div className="Btn-wrapper">
-          <button onClick={() => nextPage()}>Next</button>
+          <button onClick={() => nextPage()}>
+            <h2 className="button-text">Next</h2>
+          </button>
           {pageQuery > 1 ? (
-            <button onClick={() => prevPage()}>Prev</button>
+            <button onClick={() => prevPage()}>
+              <h2 className="button-text">Prev</h2>
+            </button>
+          ) : (
+            <></>
+          )}
+          {pageQuery === 1 ? (
+            <button onClick={() => firstPage()}>
+              <h2 className="button-text">Go to the first page</h2>
+            </button>
           ) : (
             <></>
           )}
@@ -68,7 +83,7 @@ export default function Planets() {
             <h1>Plane Name: {climate.name}</h1>
             {climate.dark_haired_residents.length === 0 ? (
               <h2 className="warning-message">
-                There is no residents with dark hair
+                There is no residents with dark hair on this planet
               </h2>
             ) : (
               climate.dark_haired_residents.map((c) => (

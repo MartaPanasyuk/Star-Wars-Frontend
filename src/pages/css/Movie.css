@@ -4,24 +4,35 @@ body {
   margin: auto 0;
 }
 
+.Input-wrapper {
+  background: transparent;
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 2px solid #264653;
+}
+
 button {
+  margin-left: 10px;
   text-decoration: none;
   font-weight: bold;
   background-color: transparent;
   border: 2px solid #264653;
   border-radius: 5px;
+  max-width: 200px;
 }
 button:hover {
   background-color: #ef476f;
 }
 
-.Btn-wrapper {
-  margin-top: 10px;
-  padding: 3px 6px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-.btn-text {
+.text_btn {
+  font-size: 15px;
   color: #264653;
-  font-size: 12px;
+}
+
+select {
+  font-size: 16px;
+  color: #264653;
+  background: transparent;
+  margin-right: 10px;
+  border: 2px solid #264653;
 }

@@ -72,19 +72,25 @@ export default function Movie() {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className="Input-wrapper"
         />
-        <br />
         <button type="submit">
-          <h2 className="text_btn">Submit</h2>
+          <h2 className="text_btn">Request</h2>
         </button>
         <div className="Btn-wrapper">
-          <button onClick={() => nextPage()}>Next</button>
+          <button onClick={() => nextPage()}>
+            <h2 className="text_btn">Next</h2>
+          </button>
           {pageQuery > 1 ? (
-            <button onClick={() => prevPage()}>Prev</button>
+            <button onClick={() => prevPage()}>
+              <h2 className="text_btn">Prev</h2>
+            </button>
           ) : (
             <></>
           )}
-          <button onClick={() => firstPage()}>On the first Page</button>
+          <button onClick={() => firstPage()}>
+            <h2 className="text_btn">On the first Page</h2>
+          </button>
         </div>
       </form>
       <div></div>
