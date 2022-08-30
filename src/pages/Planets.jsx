@@ -42,30 +42,36 @@ export default function Planets() {
   return (
     <div className="Planet-wrapper">
       <form onSubmit={onFormSubmit}>
-        <input
-          type="text"
-          value={climateQuery}
-          onChange={(e) => setClimateQuery(e.target.value)}
-          className="Input-wrapper"
-        />
+        <h2>Climate</h2>
+        <select onChange={(e) => setClimateQuery(e.target.value)}>
+          <option>arid</option>
+          <option>temperate</option>
+          <option>tropical</option>
+          <option>frozen</option>
+          <option>murky</option>
+          <option>hot</option>
+          <option>rocky</option>
+          <option>polluted</option>
+        </select>
+
         <button type="submit">
-          <h2 className="button-text">Request</h2>
+          <h2 className="button-text">Show info</h2>
         </button>
         <div className="Btn-wrapper">
           <button onClick={() => nextPage()}>
-            <h2 className="text_btn">Next</h2>
+            <h2 className="text_btn">Next page</h2>
           </button>
 
           <button
             className={pageQuery > 1 ? '' : 'hidden-btn'}
             onClick={() => prevPage()}
           >
-            <h2 className="text_btn">Prev</h2>
+            <h2 className="text_btn">Prev page</h2>
           </button>
         </div>
       </form>
       {!climate ? (
-        <h2 className="page-message">To start, please enter climate.</h2>
+        <h2 className="page-message">To start, please choose climate.</h2>
       ) : (
         climate.map((climate, index) => (
           <div key={index} className="residents-wrapper">
@@ -88,3 +94,14 @@ export default function Planets() {
     </div>
   );
 }
+
+/*
+
+   <input
+          type="text"
+          value={climateQuery}
+          onChange={(e) => setClimateQuery(e.target.value)}
+          className="Input-wrapper"
+        />
+
+        */
