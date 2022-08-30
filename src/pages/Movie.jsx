@@ -91,7 +91,7 @@ export default function Movie() {
           </div>
         </div>
         <button type="submit">
-          <h2 className="text_btn">show results</h2>
+          <h2 className="text_btn">Show results</h2>
         </button>
         <div className="Btn-wrapper">
           <button onClick={() => nextPage()} className="Btn-wrapper">
@@ -107,7 +107,7 @@ export default function Movie() {
       </form>
       <div>
         {!characters ? (
-          <h1>To start, select the title and press "show results"</h1>
+          <h1>To start, select the title and press "Show results"</h1>
         ) : (
           <div>
             {characters.map((char) => (
