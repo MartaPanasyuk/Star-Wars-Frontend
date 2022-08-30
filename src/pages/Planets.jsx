@@ -43,7 +43,7 @@ export default function Planets() {
     <div className="Planet-wrapper">
       <form onSubmit={onFormSubmit}>
         <h2>Climate</h2>
-        <select onChange={(e) => setClimateQuery(e.targe.value)}>
+        <select onChange={(e) => setClimateQuery(e.target.value)}>
           <option>arid</option>
           <option>temperate</option>
           <option>tropical</option>
