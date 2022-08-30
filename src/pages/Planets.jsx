@@ -44,6 +44,10 @@ export default function Planets() {
       <form onSubmit={onFormSubmit}>
         <h2>Climate</h2>
         <select onChange={(e) => setClimateQuery(e.target.value)}>
+          <option disabled selected value>
+            {' '}
+            -- select an option --{' '}
+          </option>
           <option>arid</option>
           <option>temperate</option>
           <option>tropical</option>
@@ -55,7 +59,7 @@ export default function Planets() {
         </select>
 
         <button type="submit">
-          <h2 className="button-text">Show info</h2>
+          <h2 className="button-text">show results</h2>
         </button>
         <div className="Btn-wrapper">
           <button onClick={() => nextPage()}>
@@ -71,7 +75,9 @@ export default function Planets() {
         </div>
       </form>
       {!climate ? (
-        <h2 className="page-message">To start, please choose climate.</h2>
+        <h2 className="page-message">
+          To start, please choose the climate and press "show results".
+        </h2>
       ) : (
         climate.map((climate, index) => (
           <div key={index} className="residents-wrapper">
