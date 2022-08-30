@@ -41,7 +41,6 @@ export default function Movie() {
     e.preventDefault();
     getAllMovieCharacters(title);
   };
-
   const nextPage = () => {
     setPageQuery(pageQuery + 1);
   };
@@ -50,7 +49,10 @@ export default function Movie() {
     setPageQuery(pageQuery - 1 > 0 ? pageQuery - 1 : 1);
   };
 
-  console.log(filterGender);
+  const firstPage = () => {
+    setPageQuery(1);
+  };
+
   return (
     <div>
       <form onSubmit={onFormSubmit}>
@@ -82,8 +84,10 @@ export default function Movie() {
           ) : (
             <></>
           )}
+          <button onClick={() => firstPage()}>On the first Page</button>
         </div>
       </form>
+      <div></div>
     </div>
   );
 }

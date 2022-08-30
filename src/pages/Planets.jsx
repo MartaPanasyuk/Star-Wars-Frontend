@@ -4,12 +4,19 @@ import './css/Planets.css';
 
 export default function Planets() {
   const [climateQuery, setClimateQuery] = useState('');
-  const [pageQuery, setPageQuery] = useState(1);
   const [climate, setClimate] = useState(null);
+  const [pageQuery, setPageQuery] = useState(1);
   const getAllPlanets = async () => {
     try {
+      let paramOptions = {};
+      if (pageQuery) {
+        paramOptions.page = pageQuery;
+      }
       const response = await axios.get(
-        `http://localhost:4000/planets/?climate=${climateQuery}&page=${pageQuery}`
+        `http://localhost:4000/planets/?climate=${climateQuery}`,
+        {
+          params: paramOptions,
+        }
       );
       const result = response.data;
       setClimate(result);
@@ -26,13 +33,11 @@ export default function Planets() {
 
   const nextPage = () => {
     setPageQuery(pageQuery + 1);
-    console.log(pageQuery);
-  };
-  const prevPage = (n) => {
-    setPageQuery(pageQuery - n);
   };
 
-  console.log(climateQuery, 'my climate');
+  const prevPage = () => {
+    setPageQuery(pageQuery - 1 > 0 ? pageQuery - 1 : 1);
+  };
 
   return (
     <div className="Planet-wrapper">
@@ -46,6 +51,14 @@ export default function Planets() {
         <button type="submit" className="btn-container">
           <h2 className="button-text">Submit</h2>
         </button>
+        <div className="Btn-wrapper">
+          <button onClick={() => nextPage()}>Next</button>
+          {pageQuery > 1 ? (
+            <button onClick={() => prevPage()}>Prev</button>
+          ) : (
+            <></>
+          )}
+        </div>
       </form>
       {!climate ? (
         <h2 className="page-message">To start, please enter climate.</h2>
@@ -68,10 +81,6 @@ export default function Planets() {
           </div>
         ))
       )}
-      <div className="btn-wrapper">
-        <button onClick={() => nextPage()}>Next Page</button>
-        <button onClick={() => prevPage(1)}>Prev Page</button>
-      </div>
     </div>
   );
 }
