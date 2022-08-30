@@ -39,10 +39,6 @@ export default function Planets() {
     setPageQuery(pageQuery - 1 > 0 ? pageQuery - 1 : 1);
   };
 
-  const firstPage = () => {
-    setPageQuery(1);
-  };
-
   return (
     <div className="Planet-wrapper">
       <form onSubmit={onFormSubmit}>
@@ -57,22 +53,15 @@ export default function Planets() {
         </button>
         <div className="Btn-wrapper">
           <button onClick={() => nextPage()}>
-            <h2 className="button-text">Next</h2>
+            <h2 className="text_btn">Next</h2>
           </button>
-          {pageQuery > 1 ? (
-            <button onClick={() => prevPage()}>
-              <h2 className="button-text">Prev</h2>
-            </button>
-          ) : (
-            <></>
-          )}
-          {pageQuery === 1 ? (
-            <button onClick={() => firstPage()}>
-              <h2 className="button-text">Go to the first page</h2>
-            </button>
-          ) : (
-            <></>
-          )}
+
+          <button
+            className={pageQuery > 1 ? '' : 'hidden-btn'}
+            onClick={() => prevPage()}
+          >
+            <h2 className="text_btn">Prev</h2>
+          </button>
         </div>
       </form>
       {!climate ? (

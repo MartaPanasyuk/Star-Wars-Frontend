@@ -4,6 +4,7 @@ import './css/Movie.css';
 
 export default function Movie() {
   const [title, setTitle] = useState('');
+  const [characters, setCharacters] = useState(null);
   const [filterGender, setFilterGender] = useState(null);
   const [filterHeight, setFilterHeight] = useState(null);
   const [filterAge, setFilterAge] = useState(null);
@@ -31,7 +32,10 @@ export default function Movie() {
       const response = await axios.get(`http://localhost:4000/movie/${title}`, {
         params: paramOptions,
       });
-      console.log(response);
+
+      const result = response.data;
+      setCharacters(result);
+      console.log(result);
     } catch (e) {
       console.log(e);
     }
@@ -47,10 +51,6 @@ export default function Movie() {
 
   const prevPage = () => {
     setPageQuery(pageQuery - 1 > 0 ? pageQuery - 1 : 1);
-  };
-
-  const firstPage = () => {
-    setPageQuery(1);
   };
 
   return (
@@ -81,19 +81,31 @@ export default function Movie() {
           <button onClick={() => nextPage()}>
             <h2 className="text_btn">Next</h2>
           </button>
-          {pageQuery > 1 ? (
-            <button onClick={() => prevPage()}>
-              <h2 className="text_btn">Prev</h2>
-            </button>
-          ) : (
-            <></>
-          )}
-          <button onClick={() => firstPage()}>
-            <h2 className="text_btn">On the first Page</h2>
+
+          <button
+            className={pageQuery > 1 ? '' : 'hidden-btn'}
+            onClick={() => prevPage()}
+          >
+            <h2 className="text_btn">Prev</h2>
           </button>
         </div>
       </form>
-      <div></div>
+      <div>
+        {!characters ? (
+          <h1>Loading</h1>
+        ) : (
+          <div>
+            {characters.map((char) => (
+              <div key={char.name}>
+                <h2>Name:{char.name}</h2>
+                <h3> Gender:{char.gender}</h3>
+                <h3>Height: {char.height}</h3>
+                <h3>Birth year:{char.birth_year}</h3>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
